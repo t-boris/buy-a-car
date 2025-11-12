@@ -212,11 +212,41 @@ async def run_fetch_pipeline() -> None:
     deduped_cars = normalize.deduplicate_cars(normalized_cars, existing_inventory)
     print(f"  Unique vehicles: {len(deduped_cars)}")
 
+    # Step 5.5: Handle vehicles not seen this run (potential sold vehicles)
+    print("\n[5.5/8] Tracking unseen vehicles...")
+    found_ids = {car.id for car in deduped_cars}
+    missing_vehicles = []
+
+    for vehicle_id, existing_car in existing_inventory.items():
+        if vehicle_id not in found_ids:
+            # Vehicle not found in current run
+            days_left = existing_car.days_to_live - 1
+
+            if days_left > 0:
+                # Still tracking - decrement days_to_live
+                existing_car.days_to_live = days_left
+                existing_car.expired_at = None
+                missing_vehicles.append(existing_car)
+                print(f"  {existing_car.title}: {days_left} days remaining")
+            elif existing_car.expired_at is None:
+                # Just expired - mark with timestamp
+                existing_car.days_to_live = 0
+                existing_car.expired_at = timestamp
+                missing_vehicles.append(existing_car)
+                print(f"  {existing_car.title}: SOLD (expired)")
+            else:
+                # Already expired before - keep the original expired_at
+                missing_vehicles.append(existing_car)
+
+    # Combine found and missing vehicles
+    all_vehicles = deduped_cars + missing_vehicles
+    print(f"  Tracked vehicles: {len(deduped_cars)} active + {len(missing_vehicles)} unseen = {len(all_vehicles)} total")
+
     # Step 6: Calculate finance info and filter by budget
     print("\n[6/8] Calculating finance and applying budget filters...")
     affordable_cars: List[NormalizedCar] = []
 
-    for car in deduped_cars:
+    for car in all_vehicles:
         try:
             meets_budget, finance_info = finance.meets_budget_constraints(
                 price=car.price,
@@ -232,7 +262,7 @@ async def run_fetch_pipeline() -> None:
             print(f"  Warning: Finance calculation failed for {car.id}: {e}")
 
     print(f"  Affordable vehicles: {len(affordable_cars)}")
-    filtered_out = len(deduped_cars) - len(affordable_cars)
+    filtered_out = len(all_vehicles) - len(affordable_cars)
     if filtered_out > 0:
         print(f"  Filtered out (over budget): {filtered_out}")
 

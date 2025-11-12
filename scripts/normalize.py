@@ -100,15 +100,20 @@ def normalize_car(
     # Current timestamp
     now = datetime.now(timezone.utc).astimezone().isoformat()
 
-    # Determine timestamps
+    # Determine timestamps and tracking info
     if existing_car and existing_car.id == vehicle_id:
-        # Preserve first_seen, update last_seen
+        # Vehicle seen again - preserve first_seen, update last_seen
         first_seen = existing_car.timestamps.first_seen
         last_seen = now
+        # Reset days_to_live since it's still available
+        days_to_live = 3
+        expired_at = None
     else:
         # New listing
         first_seen = now
         last_seen = now
+        days_to_live = 3
+        expired_at = None
 
     # Create normalized car
     return NormalizedCar(
@@ -149,7 +154,9 @@ def normalize_car(
         price_trend=PriceTrend(
             direction="new",
             delta=0
-        )
+        ),
+        days_to_live=days_to_live,
+        expired_at=expired_at
     )
 
 

@@ -61,6 +61,8 @@ export interface Car {
   timestamps: Timestamps;
   finance: FinanceInfo;
   price_trend: PriceTrend;
+  days_to_live: number;
+  expired_at: string | null;
 }
 
 export interface Inventory {
@@ -80,6 +82,7 @@ export interface FilterState {
   models: Set<string>;
   conditions: Set<VehicleCondition>;
   searchQuery: string;
+  showSold: boolean;
 }
 
 // Sort configuration

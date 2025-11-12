@@ -121,6 +121,8 @@ class NormalizedCar(BaseModel):
     timestamps: Timestamps
     finance: FinanceInfo
     price_trend: PriceTrend = Field(default_factory=lambda: PriceTrend(direction="new", delta=0))
+    days_to_live: int = Field(default=3, description="Days until marked as sold (decrements if not seen)")
+    expired_at: Optional[str] = Field(None, description="ISO 8601 timestamp when marked as sold (days_to_live reached 0)")
 
     @field_validator('year')
     @classmethod
