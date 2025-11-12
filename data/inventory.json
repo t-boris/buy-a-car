@@ -1,596 +1,8 @@
 {
-  "generated_at": "2025-11-11T20:27:08.937568-06:00",
+  "generated_at": "2025-11-11T20:36:42.503481-06:00",
   "zip": "60031",
   "radius_miles": 50,
   "items": [
-    {
-      "id": "hash-5310846c9ed114747f5b1d9ef10490b758827562",
-      "vin": null,
-      "source": "google-search",
-      "title": "2022 Nissan Altima 2.5 SV",
-      "year": 2022,
-      "make": "Nissan",
-      "model": "Altima",
-      "trim": "2.5 SV",
-      "condition": "used",
-      "price": 16777.0,
-      "mileage": 70271,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-mundelein-used-car-dealer"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726426-06:00",
-        "last_seen": "2025-11-11T20:30:00.726426-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 294.54,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-1a212c639227d7970f1f09989a25cd3e719fb93a",
-      "vin": null,
-      "source": "google-search",
-      "title": "2018 Nissan Altima 2.5 SL",
-      "year": 2018,
-      "make": "Nissan",
-      "model": "Altima",
-      "trim": "2.5 SL",
-      "condition": "used",
-      "price": 12297.0,
-      "mileage": 101924,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-mundelein-used-car-dealer"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726507-06:00",
-        "last_seen": "2025-11-11T20:30:00.726507-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 201.43,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-b6c54aac533f28f4b3d1d70007bb6fbb71e84c2c",
-      "vin": null,
-      "source": "google-search",
-      "title": "2021 INFINITI QX50 LUXE",
-      "year": 2021,
-      "make": "INFINITI",
-      "model": "QX50",
-      "trim": "LUXE",
-      "condition": "used",
-      "price": 20497.0,
-      "mileage": 71007,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-luxury-used-car-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726615-06:00",
-        "last_seen": "2025-11-11T20:30:00.726615-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 371.85,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-c6ad060b3f91425b9fc2e074688fdb067140e34a",
-      "vin": null,
-      "source": "google-search",
-      "title": "2020 Buick Enclave Essence",
-      "year": 2020,
-      "make": "Buick",
-      "model": "Enclave",
-      "trim": "Essence",
-      "condition": "used",
-      "price": 23477.0,
-      "mileage": 60899,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-luxury-used-car-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726650-06:00",
-        "last_seen": "2025-11-11T20:30:00.726650-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 433.79,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-fe06e9e82cb8d330544cf79cce27ae3ccfde3332",
-      "vin": null,
-      "source": "google-search",
-      "title": "2020 Jeep Grand Cherokee Limited",
-      "year": 2020,
-      "make": "Jeep",
-      "model": "Grand Cherokee",
-      "trim": "Limited",
-      "condition": "used",
-      "price": 20497.0,
-      "mileage": 76709,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-luxury-used-car-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726678-06:00",
-        "last_seen": "2025-11-11T20:30:00.726678-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 371.85,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-cb74097b7150d60a4ab4d6db9c221bb40ae754c4",
-      "vin": null,
-      "source": "google-search",
-      "title": "2019 Jeep Grand Cherokee Altitude",
-      "year": 2019,
-      "make": "Jeep",
-      "model": "Grand Cherokee",
-      "trim": "Altitude",
-      "condition": "used",
-      "price": 22499.0,
-      "mileage": 62685,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-luxury-used-car-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726868-06:00",
-        "last_seen": "2025-11-11T20:30:00.726868-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 413.46,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-d9a16035e59fc70f4a3f780632cd755e52c09caf",
-      "vin": null,
-      "source": "google-search",
-      "title": "2020 Alfa Romeo Stelvio Ti",
-      "year": 2020,
-      "make": "Alfa Romeo",
-      "model": "Stelvio",
-      "trim": "Ti",
-      "condition": "used",
-      "price": 22499.0,
-      "mileage": 44319,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-luxury-used-car-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726904-06:00",
-        "last_seen": "2025-11-11T20:30:00.726904-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 413.46,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-d810a34314a5f9eea69c5d59807aabc49866f38b",
-      "vin": null,
-      "source": "google-search",
-      "title": "2023 Kia Seltos LX",
-      "year": 2023,
-      "make": "Kia",
-      "model": "Seltos",
-      "trim": "LX",
-      "condition": "used",
-      "price": 18497.0,
-      "mileage": 53260,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-luxury-used-car-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.726968-06:00",
-        "last_seen": "2025-11-11T20:30:00.726968-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 330.29,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-79267a03f373faab37667fc71a13ad48b3ab12cb",
-      "vin": null,
-      "source": "google-search",
-      "title": "2022 Ford Maverick XL",
-      "year": 2022,
-      "make": "Ford",
-      "model": "Maverick",
-      "trim": "XL",
-      "condition": "used",
-      "price": 20800.0,
-      "mileage": 75557,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-pre-owned-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.727366-06:00",
-        "last_seen": "2025-11-11T20:30:00.727366-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 378.15,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-af05075c30873ad2ac444d416747142c289fc749",
-      "vin": null,
-      "source": "google-search",
-      "title": "2021 INFINITI QX50 LUXE",
-      "year": 2021,
-      "make": "INFINITI",
-      "model": "QX50",
-      "trim": "LUXE",
-      "condition": "used",
-      "price": 20497.0,
-      "mileage": 71007,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-pre-owned-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.727394-06:00",
-        "last_seen": "2025-11-11T20:30:00.727394-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 371.85,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-c928000f74069219ba092eda367fddb6a1693ab8",
-      "vin": null,
-      "source": "google-search",
-      "title": "2020 Buick Enclave Essence",
-      "year": 2020,
-      "make": "Buick",
-      "model": "Enclave",
-      "trim": "Essence",
-      "condition": "used",
-      "price": 23477.0,
-      "mileage": 60899,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-pre-owned-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.727417-06:00",
-        "last_seen": "2025-11-11T20:30:00.727417-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 433.79,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-8bcc7fae796b3e8e6dc9e85df54977f4b258ce24",
-      "vin": null,
-      "source": "google-search",
-      "title": "2017 GMC Sierra 1500 SLE",
-      "year": 2017,
-      "make": "GMC",
-      "model": "Sierra 1500",
-      "trim": "SLE",
-      "condition": "used",
-      "price": 23400.0,
-      "mileage": 84401,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-pre-owned-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.727440-06:00",
-        "last_seen": "2025-11-11T20:30:00.727440-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 432.18,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-20b0fb38da1ac2585116a185116397e254159823",
-      "vin": null,
-      "source": "google-search",
-      "title": "2020 Jeep Grand Cherokee Limited",
-      "year": 2020,
-      "make": "Jeep",
-      "model": "Grand Cherokee",
-      "trim": "Limited",
-      "condition": "used",
-      "price": 20497.0,
-      "mileage": 76709,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-pre-owned-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.727464-06:00",
-        "last_seen": "2025-11-11T20:30:00.727464-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 371.85,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
-    {
-      "id": "hash-4e9c60b0ff340d929ff6e73227ecce6f6a2d1b79",
-      "vin": null,
-      "source": "google-search",
-      "title": "2018 GMC Canyon",
-      "year": 2018,
-      "make": "GMC",
-      "model": "Canyon",
-      "trim": null,
-      "condition": "used",
-      "price": 20050.0,
-      "mileage": 81058,
-      "distance_miles": 0.0,
-      "dealer": {
-        "name": "CarWise Gurnee | Quality used cars, trucks, & SUVs for sale",
-        "phone": null,
-        "url": "https://www.carwisegurnee.com/op-pre-owned-dealer-near-mundelein"
-      },
-      "media": {
-        "thumbnail": null
-      },
-      "timestamps": {
-        "first_seen": "2025-11-11T20:30:00.729027-06:00",
-        "last_seen": "2025-11-11T20:30:00.729027-06:00"
-      },
-      "finance": {
-        "est_down": 3000.0,
-        "est_monthly": 362.56,
-        "assumptions": {
-          "apr_percent": 6.0,
-          "term_months": 60,
-          "ttl_percent_of_price": 7.5,
-          "doc_fees": 200.0
-        }
-      },
-      "price_trend": {
-        "direction": "new",
-        "delta": 0.0,
-        "prev_price": null,
-        "last_change_at": null
-      }
-    },
     {
       "id": "1HGCM82633A004352",
       "vin": "1HGCM82633A004352",
@@ -614,7 +26,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854633-06:00",
-        "last_seen": "2025-11-11T20:30:00.729151-06:00"
+        "last_seen": "2025-11-11T20:36:42.505460-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -656,7 +68,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854686-06:00",
-        "last_seen": "2025-11-11T20:30:00.729174-06:00"
+        "last_seen": "2025-11-11T20:36:42.505506-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -698,7 +110,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854708-06:00",
-        "last_seen": "2025-11-11T20:30:00.729195-06:00"
+        "last_seen": "2025-11-11T20:36:42.505535-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -740,7 +152,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854721-06:00",
-        "last_seen": "2025-11-11T20:30:00.729216-06:00"
+        "last_seen": "2025-11-11T20:36:42.505560-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -782,7 +194,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854733-06:00",
-        "last_seen": "2025-11-11T20:30:00.729236-06:00"
+        "last_seen": "2025-11-11T20:36:42.505585-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -824,7 +236,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854743-06:00",
-        "last_seen": "2025-11-11T20:30:00.729304-06:00"
+        "last_seen": "2025-11-11T20:36:42.505608-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -866,7 +278,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854753-06:00",
-        "last_seen": "2025-11-11T20:30:00.729327-06:00"
+        "last_seen": "2025-11-11T20:36:42.505630-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -908,7 +320,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854763-06:00",
-        "last_seen": "2025-11-11T20:30:00.729346-06:00"
+        "last_seen": "2025-11-11T20:36:42.505662-06:00"
       },
       "finance": {
         "est_down": 3000.0,
@@ -950,7 +362,7 @@
       },
       "timestamps": {
         "first_seen": "2025-11-11T18:24:51.854803-06:00",
-        "last_seen": "2025-11-11T20:30:00.729391-06:00"
+        "last_seen": "2025-11-11T20:36:42.505737-06:00"
       },
       "finance": {
         "est_down": 3000.0,
