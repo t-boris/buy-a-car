@@ -44,11 +44,13 @@ jobs:
         working-directory: ./site
         run: npm run build
 
-      - name: Copy data files to build
+      - name: Copy data files and create .nojekyll
         run: |
           mkdir -p site/dist
           cp data/*.json site/dist/ || echo "No data files to copy"
+          touch site/dist/.nojekyll
           ls -lh site/dist/*.json || echo "No JSON files found"
+          echo "✓ .nojekyll created"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
