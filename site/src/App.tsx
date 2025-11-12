@@ -8,16 +8,25 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [sortConfig, setSortConfig] = useState<SortConfig>({ field: 'price', direction: 'asc' });
+  const [selectedDealerships, setSelectedDealerships] = useState<Set<string>>(new Set());
 
   // Load inventory on mount
   useEffect(() => {
     loadInventory();
   }, []);
 
-  // Apply sorting when data or sort config changes
+  // Apply filtering and sorting when data, sort config, or dealership filter changes
   useEffect(() => {
     if (inventory) {
-      const sorted = [...inventory.items].sort((a, b) => {
+      let filtered = inventory.items;
+
+      // Apply dealership filter
+      if (selectedDealerships.size > 0) {
+        filtered = filtered.filter(car => selectedDealerships.has(car.dealer.name));
+      }
+
+      // Apply sorting
+      const sorted = [...filtered].sort((a, b) => {
         const { field, direction } = sortConfig;
         let aVal: number, bVal: number;
 
@@ -35,7 +44,7 @@ function App() {
       });
       setFilteredCars(sorted);
     }
-  }, [inventory, sortConfig]);
+  }, [inventory, sortConfig, selectedDealerships]);
 
   async function loadInventory() {
     try {
@@ -68,6 +77,36 @@ function App() {
 
   function getTrendClass(direction: string) {
     return `trend trend-${direction}`;
+  }
+
+  function getDealershipStats() {
+    if (!inventory) return [];
+
+    const stats = new Map<string, number>();
+    inventory.items.forEach(car => {
+      const name = car.dealer.name;
+      stats.set(name, (stats.get(name) || 0) + 1);
+    });
+
+    return Array.from(stats.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count);
+  }
+
+  function toggleDealership(dealerName: string) {
+    setSelectedDealerships(prev => {
+      const next = new Set(prev);
+      if (next.has(dealerName)) {
+        next.delete(dealerName);
+      } else {
+        next.add(dealerName);
+      }
+      return next;
+    });
+  }
+
+  function clearDealershipFilter() {
+    setSelectedDealerships(new Set());
   }
 
   if (loading) {
@@ -109,7 +148,12 @@ function App() {
             <div>
               <h1>AutoFinder</h1>
               <div className="header-info">
-                {inventory.items.length} vehicles near {inventory.zip} ({inventory.radius_miles} mi)
+                {filteredCars.length} {selectedDealerships.size > 0 ? `of ${inventory.items.length}` : ''} vehicles near {inventory.zip} ({inventory.radius_miles} mi)
+                {selectedDealerships.size > 0 && (
+                  <span style={{ marginLeft: '8px', color: '#007bff' }}>
+                    • {selectedDealerships.size} dealer{selectedDealerships.size !== 1 ? 's' : ''} selected
+                  </span>
+                )}
               </div>
             </div>
             <div className="header-info">
@@ -121,7 +165,132 @@ function App() {
 
       {/* Main Content */}
       <div className="container">
-        <div className="table-container">
+        <div style={{ display: 'flex', gap: '24px' }}>
+          {/* Sidebar */}
+          <aside style={{
+            width: '280px',
+            flexShrink: 0,
+            position: 'sticky',
+            top: '80px',
+            height: 'fit-content',
+            maxHeight: 'calc(100vh - 100px)',
+            overflowY: 'auto',
+          }}>
+            {/* Cities Section */}
+            <div style={{
+              background: '#f8f9fa',
+              borderRadius: '8px',
+              padding: '16px',
+              marginBottom: '16px'
+            }}>
+              <h3 style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 600 }}>
+                Search Areas
+              </h3>
+              <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '6px'
+              }}>
+                {['Gurnee', 'Waukegan', 'Libertyville', 'Vernon Hills', 'Mundelein', 'Grayslake', 'Lake Forest'].map(city => (
+                  <span
+                    key={city}
+                    style={{
+                      background: '#fff',
+                      border: '1px solid #dee2e6',
+                      borderRadius: '12px',
+                      padding: '4px 10px',
+                      fontSize: '12px',
+                      color: '#495057',
+                    }}
+                  >
+                    {city}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Dealerships Section */}
+            <div style={{
+              background: '#f8f9fa',
+              borderRadius: '8px',
+              padding: '16px'
+            }}>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '12px'
+              }}>
+                <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 600 }}>
+                  Dealerships
+                </h3>
+                {selectedDealerships.size > 0 && (
+                  <button
+                    onClick={clearDealershipFilter}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#007bff',
+                      fontSize: '12px',
+                      cursor: 'pointer',
+                      padding: 0,
+                    }}
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {getDealershipStats().map(dealer => (
+                  <label
+                    key={dealer.name}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '8px',
+                      borderRadius: '4px',
+                      background: selectedDealerships.has(dealer.name) ? '#e7f3ff' : '#fff',
+                      border: '1px solid',
+                      borderColor: selectedDealerships.has(dealer.name) ? '#007bff' : '#dee2e6',
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedDealerships.has(dealer.name)}
+                      onChange={() => toggleDealership(dealer.name)}
+                      style={{ cursor: 'pointer' }}
+                    />
+                    <span style={{
+                      flex: 1,
+                      fontSize: '13px',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}>
+                      {dealer.name}
+                    </span>
+                    <span style={{
+                      background: selectedDealerships.has(dealer.name) ? '#007bff' : '#6c757d',
+                      color: '#fff',
+                      borderRadius: '10px',
+                      padding: '2px 8px',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                    }}>
+                      {dealer.count}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </aside>
+
+          {/* Main Table */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div className="table-container">
           <table>
             <thead>
               <tr>
@@ -192,18 +361,20 @@ function App() {
           </table>
         </div>
 
-        {/* Stats Footer */}
-        <div className="text-center text-muted mt-4" style={{ fontSize: '14px' }}>
-          <p>
-            Showing {filteredCars.length} vehicles •{' '}
-            Avg price: {formatPrice(filteredCars.reduce((sum, c) => sum + c.price, 0) / filteredCars.length)} •{' '}
-            Avg monthly: {formatMonthly(filteredCars.reduce((sum, c) => sum + c.finance.est_monthly, 0) / filteredCars.length)}
-          </p>
-          <p style={{ marginTop: '8px' }}>
-            Finance assumes {inventory.items[0]?.finance.assumptions.apr_percent}% APR,{' '}
-            {inventory.items[0]?.finance.assumptions.term_months} months,{' '}
-            ${inventory.items[0]?.finance.assumptions.doc_fees} doc fees
-          </p>
+            {/* Stats Footer */}
+            <div className="text-center text-muted mt-4" style={{ fontSize: '14px' }}>
+              <p>
+                Showing {filteredCars.length} vehicles •{' '}
+                Avg price: {formatPrice(filteredCars.reduce((sum, c) => sum + c.price, 0) / filteredCars.length)} •{' '}
+                Avg monthly: {formatMonthly(filteredCars.reduce((sum, c) => sum + c.finance.est_monthly, 0) / filteredCars.length)}
+              </p>
+              <p style={{ marginTop: '8px' }}>
+                Finance assumes {inventory.items[0]?.finance.assumptions.apr_percent}% APR,{' '}
+                {inventory.items[0]?.finance.assumptions.term_months} months,{' '}
+                ${inventory.items[0]?.finance.assumptions.doc_fees} doc fees
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>
