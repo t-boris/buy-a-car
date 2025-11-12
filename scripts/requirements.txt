@@ -1,0 +1,14 @@
+# AutoFinder Python Dependencies
+# =====================================
+
+# HTTP client for async requests
+httpx==0.25.2
+
+# Retry logic and error handling
+tenacity==8.2.3
+
+# Data validation and serialization
+pydantic==2.5.2
+
+# Fast JSON serialization
+orjson==3.9.10

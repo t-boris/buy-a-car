@@ -1,0 +1,385 @@
+{
+  "generated_at": "2025-11-11T18:24:51.791580-06:00",
+  "zip": "60031",
+  "radius_miles": 50,
+  "items": [
+    {
+      "id": "1HGCM82633A004352",
+      "vin": "1HGCM82633A004352",
+      "source": "mock-honda-dealer",
+      "title": "2019 Honda Accord EX-L",
+      "year": 2019,
+      "make": "Honda",
+      "model": "Accord",
+      "trim": "EX-L",
+      "condition": "used",
+      "price": 18990.0,
+      "mileage": 54200,
+      "distance_miles": 18.4,
+      "dealer": {
+        "name": "Mock Honda Dealership",
+        "phone": "+1-847-555-1234",
+        "url": "https://mock-honda.example.com/vehicle/001"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2019+Honda+Accord"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854633-06:00",
+        "last_seen": "2025-11-11T18:24:51.854633-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 340.53,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "5YJ3E1EA7KF317000",
+      "vin": "5YJ3E1EA7KF317000",
+      "source": "mock-toyota-dealer",
+      "title": "2020 Toyota Camry SE",
+      "year": 2020,
+      "make": "Toyota",
+      "model": "Camry",
+      "trim": "SE",
+      "condition": "used",
+      "price": 22990.0,
+      "mileage": 32000,
+      "distance_miles": 12.1,
+      "dealer": {
+        "name": "Mock Toyota Center",
+        "phone": "+1-847-555-5678",
+        "url": "https://mock-toyota.example.com/vehicle/002"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2020+Toyota+Camry"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854686-06:00",
+        "last_seen": "2025-11-11T18:24:51.854686-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 423.66,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "5NPD84LF8KH456789",
+      "vin": "5NPD84LF8KH456789",
+      "source": "mock-hyundai-dealer",
+      "title": "2019 Hyundai Elantra SEL",
+      "year": 2019,
+      "make": "Hyundai",
+      "model": "Elantra",
+      "trim": "SEL",
+      "condition": "used",
+      "price": 15490.0,
+      "mileage": 48000,
+      "distance_miles": 22.5,
+      "dealer": {
+        "name": "Mock Hyundai Sales",
+        "phone": "+1-847-555-9012",
+        "url": "https://mock-hyundai.example.com/vehicle/003"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2019+Hyundai+Elantra"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854708-06:00",
+        "last_seen": "2025-11-11T18:24:51.854708-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 267.79,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "KNDJP3A57K7654321",
+      "vin": "KNDJP3A57K7654321",
+      "source": "mock-kia-dealer",
+      "title": "2020 Kia Forte LXS",
+      "year": 2020,
+      "make": "Kia",
+      "model": "Forte",
+      "trim": "LXS",
+      "condition": "certified",
+      "price": 17890.0,
+      "mileage": 28500,
+      "distance_miles": 8.7,
+      "dealer": {
+        "name": "Mock Kia Motors",
+        "phone": "+1-847-555-3456",
+        "url": "https://mock-kia.example.com/vehicle/004"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2020+Kia+Forte"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854721-06:00",
+        "last_seen": "2025-11-11T18:24:51.854721-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 317.67,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "JF2SKAEC9LH987654",
+      "vin": "JF2SKAEC9LH987654",
+      "source": "mock-subaru-dealer",
+      "title": "2021 Subaru Impreza Premium",
+      "year": 2021,
+      "make": "Subaru",
+      "model": "Impreza",
+      "trim": "Premium",
+      "condition": "used",
+      "price": 21490.0,
+      "mileage": 35000,
+      "distance_miles": 16.3,
+      "dealer": {
+        "name": "Mock Subaru Outlet",
+        "phone": "+1-847-555-7890",
+        "url": "https://mock-subaru.example.com/vehicle/005"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2021+Subaru+Impreza"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854733-06:00",
+        "last_seen": "2025-11-11T18:24:51.854733-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 392.49,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "JM1BM1W79K1234567",
+      "vin": "JM1BM1W79K1234567",
+      "source": "mock-mazda-dealer",
+      "title": "2019 Mazda 3 Touring",
+      "year": 2019,
+      "make": "Mazda",
+      "model": "3",
+      "trim": "Touring",
+      "condition": "used",
+      "price": 16990.0,
+      "mileage": 41000,
+      "distance_miles": 19.8,
+      "dealer": {
+        "name": "Mock Mazda Direct",
+        "phone": "+1-847-555-2345",
+        "url": "https://mock-mazda.example.com/vehicle/006"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2019+Mazda+3"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854743-06:00",
+        "last_seen": "2025-11-11T18:24:51.854743-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 298.97,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "4T1B11HK2KU789012",
+      "vin": "4T1B11HK2KU789012",
+      "source": "mock-toyota-dealer",
+      "title": "2019 Toyota Corolla LE",
+      "year": 2019,
+      "make": "Toyota",
+      "model": "Corolla",
+      "trim": "LE",
+      "condition": "used",
+      "price": 14990.0,
+      "mileage": 52000,
+      "distance_miles": 14.2,
+      "dealer": {
+        "name": "Mock Toyota Center",
+        "phone": "+1-847-555-5678",
+        "url": "https://mock-toyota.example.com/vehicle/007"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2019+Toyota+Corolla"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854753-06:00",
+        "last_seen": "2025-11-11T18:24:51.854753-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 257.4,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "1HGCV1F16JA345678",
+      "vin": "1HGCV1F16JA345678",
+      "source": "mock-honda-dealer",
+      "title": "2018 Honda Civic EX",
+      "year": 2018,
+      "make": "Honda",
+      "model": "Civic",
+      "trim": "EX",
+      "condition": "used",
+      "price": 16490.0,
+      "mileage": 58000,
+      "distance_miles": 25.6,
+      "dealer": {
+        "name": "Mock Honda Dealership",
+        "phone": "+1-847-555-1234",
+        "url": "https://mock-honda.example.com/vehicle/008"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2018+Honda+Civic"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854763-06:00",
+        "last_seen": "2025-11-11T18:24:51.854763-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 288.58,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    },
+    {
+      "id": "JM3KFBDM8K0876543",
+      "vin": "JM3KFBDM8K0876543",
+      "source": "mock-mazda-dealer",
+      "title": "2020 Mazda CX-5 Touring",
+      "year": 2020,
+      "make": "Mazda",
+      "model": "CX-5",
+      "trim": "Touring",
+      "condition": "used",
+      "price": 23990.0,
+      "mileage": 38000,
+      "distance_miles": 20.1,
+      "dealer": {
+        "name": "Mock Mazda Direct",
+        "phone": "+1-847-555-2345",
+        "url": "https://mock-mazda.example.com/vehicle/010"
+      },
+      "media": {
+        "thumbnail": "https://via.placeholder.com/400x300?text=2020+Mazda+CX-5"
+      },
+      "timestamps": {
+        "first_seen": "2025-11-11T18:24:51.854803-06:00",
+        "last_seen": "2025-11-11T18:24:51.854803-06:00"
+      },
+      "finance": {
+        "est_down": 3000.0,
+        "est_monthly": 444.45,
+        "assumptions": {
+          "apr_percent": 6.0,
+          "term_months": 60,
+          "ttl_percent_of_price": 7.5,
+          "doc_fees": 200.0
+        }
+      },
+      "price_trend": {
+        "direction": "new",
+        "delta": 0.0,
+        "prev_price": null,
+        "last_change_at": null
+      }
+    }
+  ]
+}

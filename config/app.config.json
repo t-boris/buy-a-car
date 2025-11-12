@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "AutoFinder configuration - search parameters, finance settings, and data sources",
+
+  "zip": "60031",
+  "radius_miles": 50,
+
+  "max_down_payment": 3000,
+  "max_monthly_payment": 450,
+
+  "finance": {
+    "apr_percent": 6.0,
+    "term_months": 60,
+    "doc_fees": 200,
+    "ttl_percent_of_price": 7.5
+  },
+
+  "filters": {
+    "min_year": 2018,
+    "max_mileage": 90000,
+    "allowed_conditions": ["new", "used", "certified"],
+    "include_makes": [
+      "Toyota",
+      "Honda",
+      "Hyundai",
+      "Kia",
+      "Subaru",
+      "Mazda"
+    ],
+    "exclude_models": []
+  },
+
+  "sources": {
+    "ai_meta_search": true,
+    "dealers": [],
+    "aggregators": []
+  }
+}
