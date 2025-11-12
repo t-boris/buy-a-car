@@ -56,9 +56,9 @@ async def main():
     config = load_config()
     pages = load_inventory_pages()
 
-    print(f"📄 Processing {len(pages)} inventory pages from Stage 2")
+    print(f"📄 Processing ALL {len(pages)} inventory pages from Stage 2")
     print(f"🤖 Using Gemini 2.5 Pro for extraction")
-    print(f"⚡ Processing up to 20 pages to stay within quota")
+    print(f"⚡ Processing ALL pages - no limits, maximum coverage")
     print()
 
     # Parse pages with Gemini

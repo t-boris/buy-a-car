@@ -27,7 +27,7 @@ GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini
 
 # Cache configuration
 DEALERSHIPS_CACHE = Path("data/dealerships.json")
-CACHE_DAYS = 30  # Refresh dealerships monthly
+CACHE_DAYS = 7  # Refresh dealerships weekly (reduced from 30 for more updates)
 
 
 # ============================================================================
@@ -56,24 +56,38 @@ async def find_dealerships(config: AppConfig) -> List[Dict]:
         print(f"  Using cached dealerships: {len(cached)} found")
         return cached
 
-    print(f"  Searching for dealerships near {config.zip}...")
+    print(f"  Searching for dealerships near {config.zip} within {config.radius_miles} miles...")
 
     dealerships = []
 
-    # Search queries for different types of dealerships
-    queries = [
-        f"car dealership near {config.zip}",
-        f"used cars dealer {config.zip}",
-        f"certified pre-owned {config.zip}",
+    # Cities within 15 miles of Gurnee, IL (60031)
+    nearby_cities = [
+        "Gurnee IL",
+        "Waukegan IL",
+        "Libertyville IL",
+        "Vernon Hills IL",
+        "Mundelein IL",
+        "Grayslake IL",
+        "Lake Forest IL"
     ]
 
-    # Also search for specific makes if configured
+    # Search queries - comprehensive coverage
+    queries = []
+
+    # General dealership searches
+    for city in nearby_cities:
+        queries.append(f"car dealership {city}")
+        queries.append(f"used cars {city}")
+
+    # Make-specific searches (ALL makes, not limited)
     if config.filters.include_makes:
-        for make in config.filters.include_makes[:3]:  # Limit to top 3 to save quota
-            queries.append(f"{make} dealer near {config.zip}")
+        for make in config.filters.include_makes:  # ALL makes, no limit
+            for city in nearby_cities[:3]:  # Top 3 cities for each make
+                queries.append(f"{make} dealer {city}")
 
     async with httpx.AsyncClient(timeout=15.0) as client:
-        for query in queries:
+        for i, query in enumerate(queries, 1):
+            print(f"    [{i}/{len(queries)}] Searching: {query}")
             try:
                 results = await google_search(client, query, num=10)
 
@@ -207,19 +221,28 @@ async def search_inventory(config: AppConfig, dealerships: List[Dict]) -> List[D
 
     pages = []
 
-    # Build search terms based on filters
-    search_terms = ["used cars", "inventory", "vehicles for sale"]
+    # Build search terms based on filters - comprehensive
+    search_terms = [
+        "used cars",
+        "inventory",
+        "vehicles for sale",
+        "pre-owned vehicles",
+        "certified pre-owned"
+    ]
 
     if config.filters.include_makes:
-        search_terms.extend([f"{make} for sale" for make in config.filters.include_makes[:2]])
+        for make in config.filters.include_makes:  # ALL makes
+            search_terms.append(f"{make} for sale")
 
     async with httpx.AsyncClient(timeout=15.0) as client:
-        for dealership in dealerships[:10]:  # Limit to 10 dealerships to save quota
+        # Process ALL dealerships, no limit
+        for dealership in dealerships:
             website = dealership.get("website")
             if not website:
                 continue
 
-            for term in search_terms[:2]:  # 2 searches per dealership max
+            # Use ALL search terms, no limit
+            for term in search_terms:
                 try:
                     query = f"{term}"
                     results = await google_search(client, query, num=5, site=website)
@@ -271,8 +294,8 @@ async def parse_inventory_pages(config: AppConfig, pages: List[Dict]) -> List[Ra
     vehicles = []
 
     async with httpx.AsyncClient(timeout=30.0) as client:
-        # Process in batches to avoid overwhelming APIs
-        for i, page in enumerate(pages[:20], 1):  # Limit to 20 pages
+        # Process ALL pages, no limit - we don't want to miss any deals
+        for i, page in enumerate(pages, 1):
             try:
                 # Fetch page content
                 html = await fetch_page_content(client, page["url"])

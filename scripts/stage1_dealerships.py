@@ -55,8 +55,8 @@ async def main():
     print("─" * 70)
 
     if dealerships:
-        print("\nTop dealerships:")
-        for i, dealer in enumerate(dealerships[:10], 1):
+        print(f"\nAll {len(dealerships)} dealerships found:")
+        for i, dealer in enumerate(dealerships, 1):
             print(f"  {i}. {dealer['name']}")
             print(f"     Website: {dealer['website']}")
 

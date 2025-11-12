@@ -3,7 +3,7 @@
   "description": "AutoFinder configuration - search parameters, finance settings, and data sources",
 
   "zip": "60031",
-  "radius_miles": 50,
+  "radius_miles": 15,
 
   "max_down_payment": 3000,
   "max_monthly_payment": 450,
