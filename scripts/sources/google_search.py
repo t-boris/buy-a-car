@@ -414,19 +414,20 @@ async def search_inventory(config: AppConfig, dealerships: List[Dict]) -> List[D
     pages = []
 
     # Build comprehensive search query with OR operator to save API quota
-    # Instead of 15 separate queries, combine into 1 query per dealer
+    # Only search for generic inventory terms - no need for make-specific terms
+    # since we're searching on dealer-specific sites (e.g., Honda dealer site)
     search_keywords = [
         "used cars",
         "inventory",
-        "vehicles for sale",
-        "pre-owned vehicles",
-        "certified pre-owned"
+        "vehicles",
+        "pre-owned",
+        "certified"
     ]
 
-    # Add all makes to the OR query
-    if config.filters.include_makes:
-        for make in config.filters.include_makes:
-            search_keywords.append(f"{make}")
+    # Note: We DON'T add make names (Toyota, Honda, etc) because:
+    # - We're searching site-specific (site:hondadealer.com)
+    # - Dealer already specializes in that make
+    # - Adding make names is redundant and makes query longer
 
     async with httpx.AsyncClient(timeout=15.0) as client:
         # Process ALL dealerships, no limit
