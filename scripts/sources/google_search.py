@@ -413,8 +413,9 @@ async def search_inventory(config: AppConfig, dealerships: List[Dict]) -> List[D
 
     pages = []
 
-    # Build search terms based on filters - comprehensive
-    search_terms = [
+    # Build comprehensive search query with OR operator to save API quota
+    # Instead of 15 separate queries, combine into 1 query per dealer
+    search_keywords = [
         "used cars",
         "inventory",
         "vehicles for sale",
@@ -422,9 +423,10 @@ async def search_inventory(config: AppConfig, dealerships: List[Dict]) -> List[D
         "certified pre-owned"
     ]
 
+    # Add all makes to the OR query
     if config.filters.include_makes:
-        for make in config.filters.include_makes:  # ALL makes
-            search_terms.append(f"{make} for sale")
+        for make in config.filters.include_makes:
+            search_keywords.append(f"{make}")
 
     async with httpx.AsyncClient(timeout=15.0) as client:
         # Process ALL dealerships, no limit
@@ -438,50 +440,50 @@ async def search_inventory(config: AppConfig, dealerships: List[Dict]) -> List[D
 
             print(f"    [{idx}/{len(dealerships)}] {dealer_name:<40}", end='', flush=True)
 
-            # Use ALL search terms, no limit
-            search_results_count = 0
-            for term in search_terms:
-                try:
-                    # Try site-specific search first
-                    results = await google_search(client, term, num=10, site=website)
+            # Build single OR query instead of multiple queries
+            or_query = " OR ".join(f'"{kw}"' for kw in search_keywords)
 
-                    # If no results with site restriction, try general search and filter
-                    if not results:
-                        results = await google_search(client, f"{term} {website}", num=10, site=None)
-                        # Filter results to only include this website
-                        results = [r for r in results if website in r.get("link", "")]
+            try:
+                # Single search with all keywords combined via OR
+                results = await google_search(client, or_query, num=10, site=website)
 
-                    search_results_count += len(results)
+                # If no results with site restriction, try general search
+                if not results:
+                    results = await google_search(client, f"({or_query}) {website}", num=10, site=None)
+                    # Filter results to only include this website
+                    results = [r for r in results if website in r.get("link", "")]
 
-                    for item in results:
-                        title = item.get("title", "")
-                        snippet = item.get("snippet", "")
-                        url = item.get("link", "")
+                search_results_count = len(results)
 
-                        # Filter out non-inventory pages
-                        if not is_inventory_page(title, snippet):
-                            if VERBOSE:
-                                print(f"\n        ✗ Filtered: {title[:60]}")
-                            continue
+                for item in results:
+                    title = item.get("title", "")
+                    snippet = item.get("snippet", "")
+                    url = item.get("link", "")
 
-                        page = {
-                            "url": url,
-                            "title": title,
-                            "snippet": snippet,
-                            "dealership": dealership["name"],
-                            "dealership_site": website,
-                        }
+                    # Filter out non-inventory pages
+                    if not is_inventory_page(title, snippet):
+                        if VERBOSE:
+                            print(f"\n        ✗ Filtered: {title[:60]}")
+                        continue
 
-                        # Deduplicate by URL
-                        if page["url"] and not any(p["url"] == page["url"] for p in pages):
-                            pages.append(page)
-                            if VERBOSE:
-                                print(f"\n        ✓ Added: {title[:60]}")
+                    page = {
+                        "url": url,
+                        "title": title,
+                        "snippet": snippet,
+                        "dealership": dealership["name"],
+                        "dealership_site": website,
+                    }
 
-                except Exception as e:
-                    if VERBOSE:
-                        print(f"\n        ✗ Search error for '{term}': {e}")
-                    continue  # Skip on error, continue with next
+                    # Deduplicate by URL
+                    if page["url"] and not any(p["url"] == page["url"] for p in pages):
+                        pages.append(page)
+                        if VERBOSE:
+                            print(f"\n        ✓ Added: {title[:60]}")
+
+            except Exception as e:
+                if VERBOSE:
+                    print(f"\n        ✗ Search error: {e}")
+                search_results_count = 0
 
             # Show result for this dealer
             dealer_pages_found = len(pages) - dealer_pages_before
