@@ -60,7 +60,7 @@ async def main():
 
     if config.filters.include_makes:
         print(f"🔍 Search terms: used cars, inventory, vehicles for sale")
-        print(f"🚗 Focusing on: {', '.join(config.filters.include_makes[:2])}")
+        print(f"🚗 Target makes ({len(config.filters.include_makes)}): {', '.join(config.filters.include_makes)}")
 
     print()
 
