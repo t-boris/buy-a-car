@@ -301,6 +301,103 @@
           "price": 23990.0
         }
       ]
+    },
+    {
+      "generated_at": "2025-11-11T20:40:27.745728-06:00",
+      "items": [
+        {
+          "id": "hash-5310846c9ed114747f5b1d9ef10490b758827562",
+          "price": 16777.0
+        },
+        {
+          "id": "hash-1a212c639227d7970f1f09989a25cd3e719fb93a",
+          "price": 12297.0
+        },
+        {
+          "id": "hash-b6c54aac533f28f4b3d1d70007bb6fbb71e84c2c",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-c6ad060b3f91425b9fc2e074688fdb067140e34a",
+          "price": 23477.0
+        },
+        {
+          "id": "hash-fe06e9e82cb8d330544cf79cce27ae3ccfde3332",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-cb74097b7150d60a4ab4d6db9c221bb40ae754c4",
+          "price": 22499.0
+        },
+        {
+          "id": "hash-d9a16035e59fc70f4a3f780632cd755e52c09caf",
+          "price": 22499.0
+        },
+        {
+          "id": "hash-d810a34314a5f9eea69c5d59807aabc49866f38b",
+          "price": 18497.0
+        },
+        {
+          "id": "hash-79267a03f373faab37667fc71a13ad48b3ab12cb",
+          "price": 20800.0
+        },
+        {
+          "id": "hash-af05075c30873ad2ac444d416747142c289fc749",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-c928000f74069219ba092eda367fddb6a1693ab8",
+          "price": 23477.0
+        },
+        {
+          "id": "hash-8bcc7fae796b3e8e6dc9e85df54977f4b258ce24",
+          "price": 23400.0
+        },
+        {
+          "id": "hash-20b0fb38da1ac2585116a185116397e254159823",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-4e9c60b0ff340d929ff6e73227ecce6f6a2d1b79",
+          "price": 20050.0
+        },
+        {
+          "id": "1HGCM82633A004352",
+          "price": 18990.0
+        },
+        {
+          "id": "5YJ3E1EA7KF317000",
+          "price": 22990.0
+        },
+        {
+          "id": "5NPD84LF8KH456789",
+          "price": 15490.0
+        },
+        {
+          "id": "KNDJP3A57K7654321",
+          "price": 17890.0
+        },
+        {
+          "id": "JF2SKAEC9LH987654",
+          "price": 21490.0
+        },
+        {
+          "id": "JM1BM1W79K1234567",
+          "price": 16990.0
+        },
+        {
+          "id": "4T1B11HK2KU789012",
+          "price": 14990.0
+        },
+        {
+          "id": "1HGCV1F16JA345678",
+          "price": 16490.0
+        },
+        {
+          "id": "JM3KFBDM8K0876543",
+          "price": 23990.0
+        }
+      ]
     }
   ]
 }
