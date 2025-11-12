@@ -724,6 +724,275 @@
           "price": 23990.0
         }
       ]
+    },
+    {
+      "generated_at": "2025-11-11T22:56:45.225605-06:00",
+      "items": [
+        {
+          "id": "hash-21f6fef177968413c873cda1d9c617a31be01e3c",
+          "price": 23477.0
+        },
+        {
+          "id": "hash-c1b6604ccf462b42104c375b4d4ae84b6c8c8daa",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-4624c1982b90bbab3c7e69a95305a0e202b44775",
+          "price": 20050.0
+        },
+        {
+          "id": "hash-8d06359df86a04b2654e3a3ec3b52ce80dd5b61d",
+          "price": 23400.0
+        },
+        {
+          "id": "hash-ff153716d440465ab865b15e276372ac95079008",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-ee6617edc7f76092f65956ce2ba21c4f1a3330f9",
+          "price": 20800.0
+        },
+        {
+          "id": "hash-0144965c04d59295d03fe59dab928f809016f842",
+          "price": 22497.0
+        },
+        {
+          "id": "hash-8c78f36476aeb0fbb5b06cdac1340e8284f0ede9",
+          "price": 11333.0
+        },
+        {
+          "id": "hash-5d6ccba6ce238ceb89bc0b171195dfc026e5084f",
+          "price": 24056.0
+        },
+        {
+          "id": "hash-abb4a44600102e3733fafedfe4768bdf67e9ca50",
+          "price": 14777.0
+        },
+        {
+          "id": "hash-0e5caf351de04558db39da2515d51c1e1fa67682",
+          "price": 19950.0
+        },
+        {
+          "id": "hash-8ac8025f1bb5d47dc93182e83c31b3fbbaba60d7",
+          "price": 17422.0
+        },
+        {
+          "id": "hash-da6806d6d9ee59263079e060de73257c8854e5d9",
+          "price": 16288.0
+        },
+        {
+          "id": "hash-20ffb3c28a589243b0a8ff7e55a98aed57c197ad",
+          "price": 22900.0
+        },
+        {
+          "id": "hash-848b4755eb157dd23d951e21f0027524cca55488",
+          "price": 14800.0
+        },
+        {
+          "id": "hash-f0ce48aedec96a162107ebfa5e9c7f71d2c60973",
+          "price": 17900.0
+        },
+        {
+          "id": "hash-04bc2aed6d86eccdff58a6a116ebacd52e614ed8",
+          "price": 16900.0
+        },
+        {
+          "id": "hash-2fc4d3f18c9dc61c5371f4711018d0aacb957477",
+          "price": 23900.0
+        },
+        {
+          "id": "hash-37846e1f3be4796e4c64fa3b2b99c33d915d01d3",
+          "price": 24105.0
+        },
+        {
+          "id": "hash-1c4d31d8b2a491c08f90c9f122c67a78244ffa46",
+          "price": 14999.0
+        },
+        {
+          "id": "hash-cec61bef8545b936fa94fdd35fb1313de807e1b7",
+          "price": 18995.0
+        },
+        {
+          "id": "hash-12947cffe47f4457947b5ce837893d7604ffe51a",
+          "price": 14995.0
+        },
+        {
+          "id": "2G1FP32P2S2184241",
+          "price": 14995.0
+        },
+        {
+          "id": "hash-a983120268469a9eff06ee158326224d66802d22",
+          "price": 21588.0
+        },
+        {
+          "id": "hash-d4c82c8d6572d0ee07182e8dd2a380eac66d6619",
+          "price": 22988.0
+        },
+        {
+          "id": "hash-582cd7200508bb2f742a687b4e9b424159b70411",
+          "price": 23477.0
+        },
+        {
+          "id": "hash-4ba8cc9bc4b3e5395c15a8f2309fb920d06ed4e6",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-290dcb163adfd006259f546907cd65199aeb09a0",
+          "price": 20050.0
+        },
+        {
+          "id": "hash-7449f247ee9eeb947613d17a647cb2c8b2d3920e",
+          "price": 23400.0
+        },
+        {
+          "id": "hash-652f1b1394684219c7d57a3e6af105a8807d3532",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-472bee1b73499ad589075ba37e9a9e1989f26138",
+          "price": 20800.0
+        },
+        {
+          "id": "hash-00cd8b5918093880b5a079c641adb79bc7fcced5",
+          "price": 22995.0
+        },
+        {
+          "id": "hash-3ce5403e2b926ffe62cd06d644af1f3456b16f11",
+          "price": 20995.0
+        },
+        {
+          "id": "hash-842f89ae0428012e59b2dc30321f076f890dbee7",
+          "price": 22499.0
+        },
+        {
+          "id": "hash-6f99ca4a40dc54819ad4c48ec72828eb586ebb44",
+          "price": 22499.0
+        },
+        {
+          "id": "hash-b18e3f6286d4dc1872cd6994bee8a359b1250fba",
+          "price": 20222.0
+        },
+        {
+          "id": "hash-7158a61968d01b5ebf624ed300155f4b8624a38a",
+          "price": 23500.0
+        },
+        {
+          "id": "hash-3427380846068bec46464be3462cf214aad2a8b7",
+          "price": 16777.0
+        },
+        {
+          "id": "hash-1cf57d8e8f670c255305ed66e9a837ba7d7eb52d",
+          "price": 12297.0
+        },
+        {
+          "id": "hash-5310846c9ed114747f5b1d9ef10490b758827562",
+          "price": 16777.0
+        },
+        {
+          "id": "hash-1a212c639227d7970f1f09989a25cd3e719fb93a",
+          "price": 12297.0
+        },
+        {
+          "id": "hash-fe06e9e82cb8d330544cf79cce27ae3ccfde3332",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-c6ad060b3f91425b9fc2e074688fdb067140e34a",
+          "price": 23477.0
+        },
+        {
+          "id": "hash-b6c54aac533f28f4b3d1d70007bb6fbb71e84c2c",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-d9a16035e59fc70f4a3f780632cd755e52c09caf",
+          "price": 22499.0
+        },
+        {
+          "id": "hash-64f3d40c29add15915cca2401911fe17c185b1ab",
+          "price": 20400.0
+        },
+        {
+          "id": "hash-3a1ed078607c6eec95f2fc378e9fd5f7805b28f6",
+          "price": 20995.0
+        },
+        {
+          "id": "hash-d47efd1d23119432db8d62f3b8658b7a3c4c3c1b",
+          "price": 21455.0
+        },
+        {
+          "id": "hash-20b0fb38da1ac2585116a185116397e254159823",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-8bcc7fae796b3e8e6dc9e85df54977f4b258ce24",
+          "price": 23400.0
+        },
+        {
+          "id": "hash-c928000f74069219ba092eda367fddb6a1693ab8",
+          "price": 23477.0
+        },
+        {
+          "id": "hash-af05075c30873ad2ac444d416747142c289fc749",
+          "price": 20497.0
+        },
+        {
+          "id": "hash-4e9c60b0ff340d929ff6e73227ecce6f6a2d1b79",
+          "price": 20050.0
+        },
+        {
+          "id": "hash-79267a03f373faab37667fc71a13ad48b3ab12cb",
+          "price": 20800.0
+        },
+        {
+          "id": "hash-a2060f6bef5b2610676c12fe155d9e4f5c91174b",
+          "price": 22499.0
+        },
+        {
+          "id": "hash-cb74097b7150d60a4ab4d6db9c221bb40ae754c4",
+          "price": 22499.0
+        },
+        {
+          "id": "hash-d810a34314a5f9eea69c5d59807aabc49866f38b",
+          "price": 18497.0
+        },
+        {
+          "id": "1HGCM82633A004352",
+          "price": 18990.0
+        },
+        {
+          "id": "5YJ3E1EA7KF317000",
+          "price": 22990.0
+        },
+        {
+          "id": "5NPD84LF8KH456789",
+          "price": 15490.0
+        },
+        {
+          "id": "KNDJP3A57K7654321",
+          "price": 17890.0
+        },
+        {
+          "id": "JF2SKAEC9LH987654",
+          "price": 21490.0
+        },
+        {
+          "id": "JM1BM1W79K1234567",
+          "price": 16990.0
+        },
+        {
+          "id": "4T1B11HK2KU789012",
+          "price": 14990.0
+        },
+        {
+          "id": "1HGCV1F16JA345678",
+          "price": 16490.0
+        },
+        {
+          "id": "JM3KFBDM8K0876543",
+          "price": 23990.0
+        }
+      ]
     }
   ]
 }
