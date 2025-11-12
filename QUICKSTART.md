@@ -24,11 +24,19 @@ cd site && npm install && cd ..
 
 ## 3. Set API Keys
 
-Get your API keys:
-- **Google Custom Search**: https://developers.google.com/custom-search/v1/overview
-- **Gemini API**: https://ai.google.dev/
+### Option A: Use secrets.md (Recommended)
 
-Then export them:
+Your API keys are already saved in `secrets.md`:
+
+```bash
+# Load keys from secrets.md
+source load_secrets.sh
+
+# Or manually
+source <(grep '^export' secrets.md)
+```
+
+### Option B: Manual Export
 
 ```bash
 export GOOGLE_API_KEY='your-google-api-key'
@@ -36,7 +44,13 @@ export GOOGLE_CSE_ID='your-cse-id'
 export GEMINI_API_KEY='your-gemini-key'
 ```
 
-💡 **Tip**: Add these to your `~/.zshrc` or `~/.bashrc` to make them permanent.
+### Getting New API Keys
+
+If you need to regenerate keys:
+- **Google Custom Search**: https://developers.google.com/custom-search/v1/overview
+- **Gemini API**: https://ai.google.dev/
+
+💡 **Tip**: Add exports to your `~/.zshrc` or `~/.bashrc` to make them permanent.
 
 ## 4. Run Locally
 
