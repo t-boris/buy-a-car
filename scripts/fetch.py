@@ -318,10 +318,22 @@ async def run_fetch_pipeline() -> None:
 # Entry Point
 # ============================================================================
 
-def main():
-    """Main entry point for the script."""
+async def main():
+    """Main entry point for the script - can be called from orchestrator or standalone."""
+    await run_fetch_pipeline()
+    # Return vehicle count for orchestrator
+    inventory_path = Path(__file__).parent.parent / "data" / "inventory.json"
+    if inventory_path.exists():
+        with open(inventory_path, 'r') as f:
+            data = json.load(f)
+            return len(data.get('items', []))
+    return 0
+
+
+def cli_main():
+    """CLI entry point when run standalone."""
     try:
-        asyncio.run(run_fetch_pipeline())
+        asyncio.run(main())
         print("\n✓ Fetch completed successfully")
         sys.exit(0)
     except KeyboardInterrupt:
@@ -335,4 +347,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    cli_main()

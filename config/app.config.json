@@ -31,7 +31,20 @@
       "Chevrolet",
       "Volkswagen"
     ],
-    "exclude_models": []
+    "exclude_models": [],
+    "exclude_aggregator_domains": [
+      "carfax.com",
+      "cars.com",
+      "autotrader.com",
+      "cargurus.com",
+      "edmunds.com",
+      "truecar.com",
+      "kbb.com",
+      "carmax.com",
+      "vroom.com",
+      "carvana.com",
+      "shift.com"
+    ]
   },
 
   "sources": {

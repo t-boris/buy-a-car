@@ -86,10 +86,18 @@ export interface FilterState {
 }
 
 // Sort configuration
-export type SortField = "price" | "mileage" | "year" | "monthly" | "distance" | "trend";
+export type SortField = "price" | "mileage" | "year" | "monthly" | "trend";
 export type SortDirection = "asc" | "desc";
 
 export interface SortConfig {
   field: SortField;
   direction: SortDirection;
+}
+
+// Dealership from dealerships.json
+export interface Dealership {
+  name: string;
+  website: string;
+  snippet: string;
+  found_at: string;
 }

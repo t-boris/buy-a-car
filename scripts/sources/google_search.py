@@ -281,12 +281,12 @@ def is_local_dealership(domain: str, name: str) -> bool:
 
     text = (domain + " " + name).lower()
 
-    # Exclude aggregators
+    # Exclude aggregators (matching exclude_aggregator_domains in config)
     aggregators = [
-        "cars.com", "autotrader.com", "carmax.com", "carvana.com",
-        "truecar.com", "edmunds.com", "kbb.com", "carfax.com",
-        "cargurus.com", "vroom.com", "shift.com", "autotempest.com",
-        "carbuyingtips.com"
+        "carfax.com", "cars.com", "autotrader.com", "cargurus.com",
+        "edmunds.com", "truecar.com", "kbb.com", "carmax.com",
+        "vroom.com", "carvana.com", "shift.com",
+        "autotempest.com", "carbuyingtips.com"
     ]
 
     if any(agg in domain for agg in aggregators):
@@ -434,6 +434,13 @@ async def search_inventory(config: AppConfig, dealerships: List[Dict]) -> List[D
         for idx, dealership in enumerate(dealerships, 1):
             website = dealership.get("website")
             if not website:
+                continue
+
+            # Skip aggregators
+            domain = extract_domain(website)
+            if any(agg in domain for agg in config.filters.exclude_aggregator_domains):
+                if VERBOSE:
+                    print(f"    [{idx}/{len(dealerships)}] Skipping aggregator: {dealership['name']}")
                 continue
 
             dealer_name = dealership["name"]

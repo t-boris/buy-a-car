@@ -5,7 +5,7 @@
  * by the backend fetcher script.
  */
 
-import type { Inventory } from '../types/inventory';
+import type { Inventory, Dealership } from '../types/inventory';
 
 /**
  * Fetch the latest vehicle inventory from data/inventory.json.
@@ -28,14 +28,34 @@ export async function fetchInventory(): Promise<Inventory> {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data: Inventory = await response.json();
+    const text = await response.text();
+    let data: Inventory;
 
-    // Basic validation
-    if (!data.items || !Array.isArray(data.items)) {
+    try {
+      data = JSON.parse(text);
+    } catch (parseError) {
+      console.error('JSON parse error:', parseError);
+      throw new Error('Invalid JSON in inventory file');
+    }
+
+    // Basic validation with fallbacks
+    if (!data || typeof data !== 'object') {
       throw new Error('Invalid inventory data structure');
     }
 
-    return data;
+    // Ensure items array exists
+    if (!data.items || !Array.isArray(data.items)) {
+      console.warn('No items array in inventory, using empty array');
+      data.items = [];
+    }
+
+    // Provide defaults for missing fields
+    return {
+      generated_at: data.generated_at || new Date().toISOString(),
+      zip: data.zip || 'Unknown',
+      radius_miles: data.radius_miles || 0,
+      items: data.items,
+    };
   } catch (error) {
     console.error('Failed to fetch inventory:', error);
     throw new Error(
@@ -123,5 +143,48 @@ export function formatRelativeTime(isoString: string): string {
     return formatDateTime(isoString);
   } catch {
     return isoString;
+  }
+}
+
+/**
+ * Fetch the list of all dealerships from data/dealerships.json.
+ *
+ * @returns Promise resolving to array of Dealership data (never throws, returns empty array on error)
+ */
+export async function fetchDealerships(): Promise<Dealership[]> {
+  try {
+    const response = await fetch('./dealerships.json', {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache',
+      },
+    });
+
+    if (!response.ok) {
+      console.warn(`Failed to fetch dealerships: ${response.status}`);
+      return [];
+    }
+
+    const text = await response.text();
+    let data;
+
+    try {
+      data = JSON.parse(text);
+    } catch (parseError) {
+      console.error('JSON parse error in dealerships:', parseError);
+      return [];
+    }
+
+    // The file structure is { cached_at, dealerships }
+    if (!data || !data.dealerships || !Array.isArray(data.dealerships)) {
+      console.warn('Invalid dealerships data structure, returning empty array');
+      return [];
+    }
+
+    return data.dealerships;
+  } catch (error) {
+    console.error('Failed to fetch dealerships:', error);
+    // Return empty array instead of throwing - dealerships list is optional
+    return [];
   }
 }

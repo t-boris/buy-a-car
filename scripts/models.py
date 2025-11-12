@@ -32,6 +32,7 @@ class Filters(BaseModel):
     allowed_conditions: List[Literal["new", "used", "certified"]] = Field(..., description="Allowed vehicle conditions")
     include_makes: List[str] = Field(default_factory=list, description="List of makes to include")
     exclude_models: List[str] = Field(default_factory=list, description="List of models to exclude")
+    exclude_aggregator_domains: List[str] = Field(default_factory=list, description="List of aggregator domains to exclude")
 
 
 class Sources(BaseModel):

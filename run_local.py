@@ -6,9 +6,13 @@ Run this script locally to fetch vehicle inventory with detailed logging.
 Shows all HTTP requests, timings, and progress in real-time.
 
 Usage:
-    python run_local.py [--verbose]
+    python run_local.py              # Run all stages
+    python run_local.py --stage 1    # Run only stage 1
+    python run_local.py --stage 2-4  # Run stages 2 through 4
+    python run_local.py --verbose    # Enable verbose logging
 """
 
+import argparse
 import asyncio
 import json
 import sys
@@ -116,7 +120,7 @@ async def run_stage(stage_num, stage_name, script_path):
         print_error(f"Failed after {format_duration(elapsed)}: {e}")
         raise
 
-async def main():
+async def main(start_stage=1, end_stage=4):
     """Main execution."""
     print_header("AutoFinder Local Runner")
 
@@ -132,48 +136,30 @@ async def main():
     print_info(f"Location: ZIP {config['zip']}, Radius: {config['radius_miles']} miles")
     print_info(f"Makes: {', '.join(config['filters']['include_makes'])}")
     print_info(f"Budget: ${config['max_down_payment']} down, ${config['max_monthly_payment']}/mo")
+
+    if start_stage > 1 or end_stage < 4:
+        print_info(f"Running stages {start_stage} to {end_stage} only")
     print()
 
     # Track overall timing
     total_start = time.time()
     timings = {}
 
+    # Define all stages
+    stages = [
+        (1, "Finding Dealerships", Path(__file__).parent / "scripts" / "stage1_dealerships.py"),
+        (2, "Searching Inventory Pages", Path(__file__).parent / "scripts" / "stage2_inventory.py"),
+        (3, "Parsing with Gemini AI", Path(__file__).parent / "scripts" / "stage3_parse.py"),
+        (4, "Final Processing & Deduplication", Path(__file__).parent / "scripts" / "fetch.py"),
+    ]
+
     try:
-        # Stage 1: Find Dealerships
-        elapsed, count = await run_stage(
-            1,
-            "Finding Dealerships",
-            Path(__file__).parent / "scripts" / "stage1_dealerships.py"
-        )
-        timings['Stage 1'] = elapsed
-        print()
-
-        # Stage 2: Search Inventory Pages
-        elapsed, count = await run_stage(
-            2,
-            "Searching Inventory Pages",
-            Path(__file__).parent / "scripts" / "stage2_inventory.py"
-        )
-        timings['Stage 2'] = elapsed
-        print()
-
-        # Stage 3: Parse with Gemini AI
-        elapsed, count = await run_stage(
-            3,
-            "Parsing with Gemini AI",
-            Path(__file__).parent / "scripts" / "stage3_parse.py"
-        )
-        timings['Stage 3'] = elapsed
-        print()
-
-        # Stage 4: Final Processing
-        elapsed, count = await run_stage(
-            4,
-            "Final Processing & Deduplication",
-            Path(__file__).parent / "scripts" / "fetch.py"
-        )
-        timings['Stage 4'] = elapsed
-        print()
+        # Run selected stages
+        for stage_num, stage_name, script_path in stages:
+            if start_stage <= stage_num <= end_stage:
+                elapsed, count = await run_stage(stage_num, stage_name, script_path)
+                timings[f'Stage {stage_num}'] = elapsed
+                print()
 
         # Summary
         total_elapsed = time.time() - total_start
@@ -225,14 +211,62 @@ async def main():
         traceback.print_exc()
         sys.exit(1)
 
+def parse_stage_arg(stage_arg):
+    """Parse stage argument (e.g., '2', '2-4')."""
+    if '-' in stage_arg:
+        start, end = stage_arg.split('-')
+        return int(start), int(end)
+    else:
+        stage = int(stage_arg)
+        return stage, stage
+
+
 if __name__ == "__main__":
     import os
 
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description='AutoFinder Local Runner - Fetch vehicle inventory with detailed logging',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python run_local.py              # Run all stages (1-4)
+  python run_local.py --stage 1    # Run only stage 1
+  python run_local.py --stage 2-4  # Run stages 2 through 4
+  python run_local.py --stage 3    # Run only stage 3
+        """
+    )
+    parser.add_argument(
+        '--stage',
+        type=str,
+        help='Stage(s) to run: single number (e.g., "3") or range (e.g., "2-4")'
+    )
+    parser.add_argument(
+        '--verbose',
+        action='store_true',
+        help='Enable verbose logging (shows all HTTP requests)'
+    )
+
+    args = parser.parse_args()
+
+    # Parse stage range
+    start_stage, end_stage = 1, 4
+    if args.stage:
+        try:
+            start_stage, end_stage = parse_stage_arg(args.stage)
+            if not (1 <= start_stage <= 4) or not (1 <= end_stage <= 4) or start_stage > end_stage:
+                print_error("Stage must be between 1-4")
+                sys.exit(1)
+        except ValueError:
+            print_error("Invalid stage format. Use: --stage 3 or --stage 2-4")
+            sys.exit(1)
+
     # Enable verbose logging for HTTP requests
-    os.environ['AUTOFINDER_VERBOSE'] = '1'
+    if args.verbose:
+        os.environ['AUTOFINDER_VERBOSE'] = '1'
 
     try:
-        asyncio.run(main())
+        asyncio.run(main(start_stage, end_stage))
     except KeyboardInterrupt:
         print()
         sys.exit(0)
