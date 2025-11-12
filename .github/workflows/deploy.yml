@@ -47,7 +47,8 @@ jobs:
       - name: Copy data files to build
         run: |
           mkdir -p site/dist
-          cp -r data/*.json site/dist/ 2>/dev/null || echo "No data files yet"
+          cp data/*.json site/dist/ || echo "No data files to copy"
+          ls -lh site/dist/*.json || echo "No JSON files found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -17,8 +17,8 @@ export default defineConfig({
     minify: 'esbuild',
   },
 
-  // Public directory for static assets
-  publicDir: '../data',
+  // Public directory disabled - data files copied by workflow
+  publicDir: false,
 
   // Dev server configuration
   server: {
