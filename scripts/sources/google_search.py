@@ -200,21 +200,37 @@ async def google_search(client: httpx.AsyncClient, query: str, num: int = 10, si
     Returns:
         List of search result items
     """
+    # Build query with site restriction if needed
+    if site:
+        # Use site: operator at the end of query
+        full_query = f"{query} site:{site}"
+    else:
+        full_query = query
+
     params = {
         "key": GOOGLE_API_KEY,
         "cx": GOOGLE_CSE_ID,
-        "q": query,
+        "q": full_query,
         "num": min(num, 10),  # API limit is 10 per request
     }
-
-    # Use siteSearch parameter instead of site: operator in query
-    if site:
-        params["siteSearch"] = site
-        params["siteSearchFilter"] = "i"  # include results from this site
 
     start_time = time.time()
     response = await client.get(GOOGLE_SEARCH_URL, params=params)
     duration = time.time() - start_time
+
+    # Check for errors and provide helpful messages
+    if response.status_code == 400:
+        error_data = response.json() if response.content else {}
+        error_msg = error_data.get("error", {}).get("message", "Unknown error")
+
+        if VERBOSE:
+            print(f"\n        ✗ Google API 400 error: {error_msg}")
+            print(f"        Query: {full_query}")
+            if site:
+                print(f"        Site: {site}")
+
+        # Return empty results instead of raising error
+        return []
 
     response.raise_for_status()
 
@@ -223,7 +239,7 @@ async def google_search(client: httpx.AsyncClient, query: str, num: int = 10, si
 
     log_request(
         "GET",
-        f"{GOOGLE_SEARCH_URL}?q={query[:50]}...",
+        f"{GOOGLE_SEARCH_URL}?q={full_query[:50]}..." if site else f"{GOOGLE_SEARCH_URL}?q={query[:50]}...",
         duration,
         response.status_code,
         len(response.content)
@@ -426,8 +442,15 @@ async def search_inventory(config: AppConfig, dealerships: List[Dict]) -> List[D
             search_results_count = 0
             for term in search_terms:
                 try:
-                    query = f"{term}"
-                    results = await google_search(client, query, num=5, site=website)
+                    # Try site-specific search first
+                    results = await google_search(client, term, num=10, site=website)
+
+                    # If no results with site restriction, try general search and filter
+                    if not results:
+                        results = await google_search(client, f"{term} {website}", num=10, site=None)
+                        # Filter results to only include this website
+                        results = [r for r in results if website in r.get("link", "")]
+
                     search_results_count += len(results)
 
                     for item in results:
