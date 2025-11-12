@@ -16,7 +16,8 @@ import type { Inventory } from '../types/inventory';
 export async function fetchInventory(): Promise<Inventory> {
   try {
     // Fetch with cache bypass to ensure fresh data
-    const response = await fetch('/inventory.json', {
+    // Use relative path to work with GitHub Pages base path
+    const response = await fetch('./inventory.json', {
       cache: 'no-store',
       headers: {
         'Cache-Control': 'no-cache',
