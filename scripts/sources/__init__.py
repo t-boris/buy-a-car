@@ -36,16 +36,31 @@ async def gather_candidates(config: AppConfig) -> List[RawCarData]:
     candidates: List[RawCarData] = []
 
     # Import source modules
-    from sources import google_search, mock_sources
+    from sources import mock_sources
+    import json
 
-    # Google Search Pipeline (if enabled)
-    if config.sources.ai_meta_search:  # Reusing this flag for Google Search
+    # Try to load Google Search results from Stage 3 cache
+    stage3_cache = Path(__file__).parent.parent / "data" / ".cache" / "stage3_vehicles.json"
+
+    if stage3_cache.exists():
         try:
-            google_results = await google_search.search_vehicles(config)
-            candidates.extend(google_results)
-            print(f"  Google Search Pipeline: {len(google_results)} vehicles")
+            with open(stage3_cache, 'r') as f:
+                data = json.load(f)
+
+            # Convert to RawCarData objects
+            for item in data.get("vehicles", []):
+                try:
+                    vehicle = RawCarData(**item)
+                    candidates.append(vehicle)
+                except Exception as e:
+                    print(f"    Warning: Failed to load vehicle: {e}")
+                    continue
+
+            print(f"  Google Search (from cache): {len(candidates)} vehicles")
         except Exception as e:
-            print(f"  Google Search Pipeline failed: {e}")
+            print(f"  Failed to load Stage 3 cache: {e}")
+    else:
+        print("  Google Search: No cached results (run stage scripts first)")
 
     # Mock/Demo sources (for testing)
     # Uncomment to use mock data for development
